@@ -70,6 +70,11 @@ const Product = () => {
           </div>
           <button
             onClick={() => {
+              if (!size) {
+                toast.error("Please select size");
+                return;
+              }
+
               addToCart(productData._id, size);
               toast.success("Product added to cart 🛒");
             }}

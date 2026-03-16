@@ -17,7 +17,7 @@ const Navbar = () => {
     }
 
   return (
-    <div className='flex items-center justify-between py-5 font-medium'>
+    <div className='sticky top-0 z-50 bg-white flex items-center justify-between py-5 font-medium'>
       
       <Link to='/'><img src={assets.logo} className='w-16' alt="" /></Link>
 
