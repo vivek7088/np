@@ -1,6 +1,8 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import  { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+
 
 const images = [
   assets.hero_img,
@@ -8,6 +10,7 @@ const images = [
   assets.logo,
 ];
 const Hero = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -34,16 +37,22 @@ const Hero = () => {
           key={index}
           src={img}
           alt={`Slide ${index + 1}`}
-          className={`absolute w-full h-full object-cover transition-opacity duration-700 ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute w-full h-full object-cover transition-opacity duration-700 ${index === currentIndex ? 'opacity-100' : 'opacity-0'
+            }`}
         />
       ))}
 
       {/* Text & Button */}
       <div className='absolute inset-0 flex flex-col items-center justify-center text-white bg-black/30'>
-        <h1 className='text-3xl sm:text-5xl font-bold'>Latest Arrivals</h1>
-        <button className='mt-4 px-6 py-2 bg-white text-black font-semibold rounded-md'>Shop Now</button>
+        <h1 className='text-4xl sm:text-6xl font-bold tracking-wide'>
+          Latest Arrivals
+        </h1>
+        <button
+          onClick={() => navigate('/collection')}
+          className='mt-4 px-6 py-2 bg-white text-black font-semibold rounded-md hover:bg-black hover:text-white transition'
+        >
+          Shop Now
+        </button>
       </div>
 
       {/* Arrows */}
